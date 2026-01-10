@@ -1,0 +1,1 @@
+// This file is no longer used. SVGs are now directly in index.html.

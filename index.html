@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red River Restaurants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .oswald { font-family: 'Oswald', sans-serif; }
+        .logo-hover:hover { transform: scale(1.05); }
+        .transition-transform { transition: transform 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="min-h-screen flex flex-col w-full">
+        <!-- Top Header Section - Red -->
+        <header class="bg-[#f81c24] w-full pt-8 pb-6 md:pt-12 md:pb-8 flex flex-col items-center justify-center shadow-lg px-4">
+            <div class="mb-4">
+                <!-- Main Header Logo -->
+                <svg viewBox="0 0 200 200" class="w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56">
+                    <circle cx="100" cy="100" r="95" fill="none" stroke="white" strokeWidth="4" />
+                    <path id="curve-top" fill="transparent" d="M 25,100 A 75,75 0 0,1 175,100" />
+                    <path id="curve-bottom" fill="transparent" d="M 25,100 A 75,75 0 0,0 175,100" />
+                    <text class="fill-white font-bold" style="font-size: 22px;">
+                        <textPath href="#curve-top" startOffset="50%" text-anchor="middle">RED RIVER</textPath>
+                    </text>
+                    <text class="fill-white font-bold" style="font-size: 18px;">
+                        <textPath href="#curve-bottom" startOffset="50%" text-anchor="middle">RESTAURANTS</textPath>
+                    </text>
+                    <text x="100" y="105" text-anchor="middle" class="fill-white italic" style="font-size: 14px;">Est. 2002</text>
+                </svg>
+            </div>
+            <p class="text-white font-bold text-center px-4 mt-2 tracking-wide text-xs sm:text-sm md:text-base max-w-md">
+                Please choose one of our fabulous Redriver Establishments.
+            </p>
+        </header>
+
+        <!-- Logos Selection Section - White -->
+        <main class="flex-grow bg-white w-full py-8 md:py-16 px-4 md:px-12">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8">
+                
+                <!-- Logo 1: BBQ and Grill -->
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                        <svg viewBox="0 0 300 300" class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
+                            <circle cx="150" cy="150" r="140" fill="#f81c24" stroke="#003366" stroke-width="8" />
+                            <circle cx="150" cy="150" r="110" fill="white" stroke="#003366" stroke-width="2" />
+                            <!-- Central Star -->
+                            <polygon points="150,55 174,124 247,124 188,168 211,237 150,195 89,237 112,168 53,124 126,124" fill="#6699ff" stroke="#003366" stroke-width="2" />
+                            <defs>
+                                <path id="bbq-curve" d="M 40,150 A 110,110 0 1,1 260,150" />
+                            </defs>
+                            <text class="fill-white font-black" style="font-size: 34px;">
+                                <textPath href="#bbq-curve" startOffset="50%" text-anchor="middle">RED RIVER B.B.Q.</textPath>
+                            </text>
+                            <text x="150" y="260" text-anchor="middle" class="fill-white font-black" style="font-size: 28px;">and Grill</text>
+                            <text x="150" y="215" text-anchor="middle" class="fill-[#003366] font-bold" style="font-size: 14px;">est. 2002</text>
+                            <text x="60" y="235" class="fill-white" style="font-size: 24px;">★</text>
+                            <text x="240" y="235" class="fill-white" style="font-size: 24px;">★</text>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Logo 2: BBQ & Burger -->
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                        <svg viewBox="0 0 300 240" class="w-48 h-40 sm:w-64 sm:h-52 md:w-80 md:h-64">
+                            <!-- Shield Shape -->
+                            <path d="M 20,40 L 280,40 L 280,200 L 150,230 L 20,200 Z" fill="#b22222" stroke="#003366" stroke-width="8" />
+                            <path d="M 25,45 L 275,45 L 275,195 L 150,225 L 25,195 Z" fill="none" stroke="#FFD700" stroke-width="4" />
+                            <!-- Header with Star -->
+                            <path d="M 110,40 L 110,10 A 40,40 0 0,1 190,10 L 190,40 Z" fill="#003366" />
+                            <polygon points="150,15 158,35 178,35 162,48 168,68 150,55 132,68 138,48 122,35 142,35" fill="#FFD700" transform="translate(0, -5)" />
+                            <text x="150" y="115" text-anchor="middle" class="fill-white font-black oswald" style="font-size: 42px;">RED RIVER</text>
+                            <text x="150" y="150" text-anchor="middle" class="fill-white font-bold" style="font-size: 20px; letter-spacing: 2px;">BAR-B-QUE & BURGER</text>
+                            <text x="80" y="70" text-anchor="middle" class="fill-white font-bold italic" style="font-size: 14px;">Est.</text>
+                            <text x="220" y="70" text-anchor="middle" class="fill-white font-bold italic" style="font-size: 14px;">2002</text>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Logo 3: Cantina -->
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                        <div class="relative">
+                            <svg viewBox="0 0 300 300" class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80">
+                                <circle cx="150" cy="150" r="140" fill="#006666" opacity="0.9" />
+                                <circle cx="150" cy="150" r="130" fill="none" stroke="white" stroke-width="1" stroke-dasharray="5,5" />
+                                <path d="M 150,10 A 140,140 0 0,1 150,290" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="20" />
+                                <path d="M 10,150 A 140,140 0 0,1 290,150" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="20" />
+                                <text x="150" y="130" text-anchor="middle" class="fill-[#b22222] font-black oswald" style="font-size: 54px;">RED RIVER</text>
+                                <text x="150" y="195" text-anchor="middle" class="fill-[#98fb98] font-bold" style="font-size: 60px; font-family: cursive;">Cantina</text>
+                                <text x="150" y="145" text-anchor="middle" class="fill-white font-bold" style="font-size: 10px;">EST. 2017</text>
+                            </svg>
+                        </div>
+                        <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-[#b22222] font-black text-lg sm:text-xl md:text-2xl oswald">
+                            <span>TEX-MEX</span>
+                            <span class="text-teal-700">★</span>
+                            <span>FAJITAS</span>
+                            <span class="text-teal-700">★</span>
+                            <span>MARGARITAS</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Simple Footer/Status Bar -->
+        <footer class="bg-black text-[#888] text-[10px] py-2 px-4 font-mono w-full text-center sm:text-left">
+            https://redriverbbq.com
+        </footer>
+    </div>
+</body>
+</html>
