@@ -32,56 +32,58 @@
     </style>
 </head>
 
-<body class="bg-white">
-    <div class="min-h-screen flex flex-col w-full">
+<body class="bg-white h-screen overflow-hidden">
+    <div class="h-full flex flex-col w-full">
         <!-- Top Header Section - Red -->
         <header
-            class="bg-[#f81c24] w-full pt-8 pb-6 md:pt-12 md:pb-8 flex flex-col items-center justify-center shadow-lg px-4">
-            <div class="mb-4 w-full max-w-2xl">
+            class="bg-[#f81c24] w-full flex-shrink-0 flex flex-col items-center justify-center shadow-lg px-4 py-4 md:py-6">
+            <div class="w-full max-w-xl mb-2 md:mb-3">
                 <!-- Main Header Logo -->
                 <img src="images/Untitled design (4).png" alt="Red River Restaurants"
                     class="w-full h-auto object-contain">
             </div>
             <p
-                class="text-white font-bold text-center px-4 mt-2 tracking-wide text-xs sm:text-sm md:text-base max-w-md">
+                class="text-white font-bold text-center px-4 tracking-wide text-xs sm:text-sm md:text-base leading-tight">
                 Please choose one of our fabulous Redriver Establishments.
             </p>
         </header>
 
         <!-- Logos Selection Section - White -->
-        <main class="flex-grow bg-white w-full py-8 md:py-16 px-4 md:px-12">
-            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-8">
+        <main class="flex-grow bg-white w-full overflow-auto">
+            <div class="h-full flex items-center justify-center px-3 md:px-6 py-4 md:py-8">
+                <div class="w-full max-w-7xl flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8">
 
-                <!-- Logo 1: BBQ and Grill -->
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
-                        <img src="images/RRBBQBrand.png" alt="Red River BBQ & Grill"
-                            class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain">
-                    </a>
-                </div>
+                    <!-- Logo 1: BBQ and Grill -->
+                    <div class="w-full lg:w-1/3 flex justify-center flex-shrink-0">
+                        <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                            <img src="images/RRBBQBrand.png" alt="Red River BBQ & Grill"
+                                class="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain">
+                        </a>
+                    </div>
 
-                <!-- Logo 2: BBQ & Burger -->
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
-                        <img src="images/rrbbqburgerLogosm.png" alt="Red River BBQ & Burger"
-                            class="w-48 h-40 sm:w-64 sm:h-52 md:w-80 md:h-64 object-contain">
-                    </a>
-                </div>
+                    <!-- Logo 2: BBQ & Burger -->
+                    <div class="w-full lg:w-1/3 flex justify-center flex-shrink-0">
+                        <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                            <img src="images/rrbbqburgerLogosm.png" alt="Red River BBQ & Burger"
+                                class="w-40 h-32 sm:w-56 sm:h-44 md:w-72 md:h-56 lg:w-80 lg:h-64 object-contain">
+                        </a>
+                    </div>
 
-                <!-- Logo 3: Cantina -->
-                <div class="w-full lg:w-1/3 flex justify-center">
-                    <a href="#" class="flex flex-col items-center logo-hover transition-transform">
-                        <img src="images/RRCBrand.png" alt="Red River Cantina"
-                            class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain">
-                        <div
-                            class="mt-4 flex flex-wrap items-center justify-center gap-2 text-[#b22222] font-black text-lg sm:text-xl md:text-2xl oswald">
-                            <span>TEX-MEX</span>
-                            <span class="text-teal-700">★</span>
-                            <span>FAJITAS</span>
-                            <span class="text-teal-700">★</span>
-                            <span>MARGARITAS</span>
-                        </div>
-                    </a>
+                    <!-- Logo 3: Cantina -->
+                    <div class="w-full lg:w-1/3 flex justify-center flex-shrink-0">
+                        <a href="#" class="flex flex-col items-center logo-hover transition-transform">
+                            <img src="images/RRCBrand.png" alt="Red River Cantina"
+                                class="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain">
+                            <div
+                                class="mt-2 md:mt-3 flex flex-wrap items-center justify-center gap-1 md:gap-2 text-[#b22222] font-black text-sm sm:text-base md:text-lg lg:text-xl oswald">
+                                <span>TEX-MEX</span>
+                                <span class="text-teal-700">★</span>
+                                <span>FAJITAS</span>
+                                <span class="text-teal-700">★</span>
+                                <span>MARGARITAS</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </main>
