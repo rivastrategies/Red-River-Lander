@@ -1,1 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red River Restaurants App & Rewards | Order Ahead & Earn Rewards</title>
+    <meta name="description"
+        content="Download the official Red River Restaurants app to order ahead, earn rewards, receive exclusive offers, and enjoy faster pickup at participating Red River locations.">
+    <link rel="canonical" href="https://redriverrestaurants.com/rewards/">
+    <link rel="icon" type="image/png" href="../images/Untitled%20design%20(4).png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!--
+        EDITABLE VALUES — everything a manager needs to update lives here or is clearly marked below.
+
+        1) TOAST_SIGNUP_URL — https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsSignup
+           Used on every "Join Red River Rewards" / "Join Through Toast" button on this page.
+           This intentionally uses the League City BBQ & Grill Toast link as the single corporate-lander
+           signup path, even though each restaurant has its own Toast rewards link. Do not swap in
+           other location-specific Toast signup links on this page.
+        2) TOAST_LOOKUP_URL — https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsLookup
+           Used on the "Look Up My Rewards" button for existing members.
+        3) Reward dollar/point values are plain text in each card below — search for "$10", "$15",
+           "1 point", and "100 points" to update program economics.
+    -->
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .logo-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .logo-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .logo-card:hover .logo-glow {
+            opacity: 1;
+        }
+
+        .logo-glow {
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .animated-gradient {
+            background: linear-gradient(-45deg, #c8151c, #d93040, #c8151c, #a8121e);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-animation-delayed {
+            animation: float 4s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        /* Signature element: point-counter ticker in the hero, styled like a POS/receipt readout */
+        @keyframes tickerGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 rgba(200, 21, 28, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 22px rgba(200, 21, 28, 0.25);
+            }
+        }
+
+        .receipt-card {
+            animation: tickerGlow 3.5s ease-in-out infinite;
+        }
+
+        .step-connector {
+            background-image: linear-gradient(to right, #c8151c 33%, rgba(200, 21, 28, 0) 0%);
+            background-position: bottom;
+            background-size: 12px 2px;
+            background-repeat: repeat-x;
+        }
+
+        details>summary {
+            list-style: none;
+            cursor: pointer;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details[open] .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-chevron {
+            transition: transform 0.25s ease;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .float-animation,
+            .float-animation-delayed,
+            .receipt-card,
+            .animated-gradient,
+            .logo-card {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+
+    <!-- ============ HEADER / NAV ============ -->
+    <header class="bg-[#c8151c] w-full flex-shrink-0">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 md:py-4">
+            <a href="/" class="flex items-center gap-3 group">
+                <img src="../images/Untitled%20design%20(4).png" alt="Red River Restaurants"
+                    class="h-10 md:h-12 w-auto object-contain drop-shadow-md">
+                <span class="hidden sm:inline text-white oswald font-semibold tracking-wide text-sm md:text-base">
+                    Red River Restaurants
+                </span>
+            </a>
+            <a href="/"
+                class="text-white text-xs md:text-sm font-semibold tracking-wide underline underline-offset-4 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-white rounded-sm">
+                &larr; Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="animated-gradient w-full relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20 grid md:grid-cols-2 gap-10 items-center relative z-10">
+            <div class="text-center md:text-left">
+                <p class="oswald text-white/80 uppercase tracking-[0.3em] text-xs md:text-sm mb-3">Free to Join</p>
+                <h1 class="oswald text-white font-bold text-4xl sm:text-5xl md:text-6xl leading-tight drop-shadow-md">
+                    Red River Rewards
+                </h1>
+                <p class="text-white/90 text-lg md:text-xl font-semibold mt-3">
+                    The Fastest Way to Order Red River.
+                </p>
+                <p class="text-white/85 text-sm md:text-base mt-4 max-w-md mx-auto md:mx-0 leading-relaxed">
+                    Order ahead for pickup in seconds, customize your meal, and pay in advance for a faster
+                    Red River experience every time you visit &mdash; with rewards earned automatically along
+                    the way.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                    <a href="https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsSignup"
+                        class="bg-white text-[#c8151c] font-bold oswald tracking-wide px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm md:text-base">
+                        Join Red River Rewards
+                    </a>
+                    <a href="#how-it-works"
+                        class="border-2 border-white text-white font-bold oswald tracking-wide px-8 py-3.5 rounded-full hover:bg-white/10 transition-all text-sm md:text-base">
+                        How It Works
+                    </a>
+                </div>
+
+                <!-- Above-the-fold quick benefits row: convenience first, rewards second -->
+                <div class="mt-9 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto md:mx-0">
+                    <div class="bg-white/15 border border-white/25 rounded-xl px-3 py-4 text-center backdrop-blur-sm shadow-md">
+                        <p class="text-3xl leading-none">🍔</p>
+                        <p class="text-white text-xs sm:text-sm font-bold oswald tracking-wide mt-2">Order Ahead</p>
+                    </div>
+                    <div class="bg-white/15 border border-white/25 rounded-xl px-3 py-4 text-center backdrop-blur-sm shadow-md">
+                        <p class="text-3xl leading-none">⚡</p>
+                        <p class="text-white text-xs sm:text-sm font-bold oswald tracking-wide mt-2">Skip the Line</p>
+                    </div>
+                    <div class="bg-white/15 border border-white/25 rounded-xl px-3 py-4 text-center backdrop-blur-sm shadow-md">
+                        <p class="text-3xl leading-none">⭐</p>
+                        <p class="text-white text-xs sm:text-sm font-bold oswald tracking-wide mt-2">Earn Rewards</p>
+                    </div>
+                    <div class="bg-white/15 border border-white/25 rounded-xl px-3 py-4 text-center backdrop-blur-sm shadow-md">
+                        <p class="text-3xl leading-none">🎁</p>
+                        <p class="text-white text-xs sm:text-sm font-bold oswald tracking-wide mt-2">Exclusive Offers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App mockup: original marketing illustration (not a Toast UI reproduction).
+                 Communicates "ordering app" first, rewards second: restaurant selector, order-ahead
+                 CTA, pickup tag, rewards balance, menu preview, favorites, and a bottom tab bar. -->
+            <div class="flex justify-center md:justify-end">
+                <div class="receipt-card float-animation bg-gray-900 rounded-[2.5rem] shadow-2xl w-64 sm:w-72 p-2.5 border-4 border-white/30">
+                    <div class="bg-white rounded-[2rem] overflow-hidden">
+
+                        <!-- App header -->
+                        <div class="bg-[#c8151c] px-4 pt-4 pb-3">
+                            <div class="flex items-center justify-between">
+                                <span class="oswald text-white font-bold text-xs tracking-wide">RED RIVER REWARDS</span>
+                                <span class="text-white text-xs">⭐ 245</span>
+                            </div>
+                            <!-- Restaurant selector -->
+                            <div class="mt-3 flex gap-1.5 overflow-hidden">
+                                <span class="bg-white text-[#c8151c] text-[9px] font-bold px-2.5 py-1 rounded-full whitespace-nowrap">BBQ &middot; League City</span>
+                                <span class="bg-white/20 text-white text-[9px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">Cantina &middot; Richmond</span>
+                            </div>
+                        </div>
+
+                        <!-- Order ahead / pickup card -->
+                        <div class="px-4 pt-4">
+                            <div class="bg-gray-50 border border-gray-100 rounded-xl p-3 flex items-center justify-between">
+                                <div>
+                                    <p class="oswald font-bold text-gray-800 text-sm">Order Ahead</p>
+                                    <p class="text-[10px] text-gray-400 mt-0.5">Pickup &middot; Ready in 15 min</p>
+                                </div>
+                                <span class="bg-[#c8151c] text-white text-[10px] font-bold px-3 py-1.5 rounded-full">Start Order</span>
+                            </div>
+                        </div>
+
+                        <!-- Menu preview -->
+                        <div class="px-4 pt-4">
+                            <p class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">Menu Preview</p>
+                            <div class="mt-2 space-y-2">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center text-xs">🌮</span>
+                                        <span class="text-xs font-semibold text-gray-700">Fajita Tacos</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">$12</span>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-7 h-7 rounded-lg bg-red-50 flex items-center justify-center text-xs">🍖</span>
+                                        <span class="text-xs font-semibold text-gray-700">Brisket Plate</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">$16</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Rewards balance strip -->
+                        <div class="px-4 pt-4">
+                            <div class="border-t-2 border-dashed border-gray-200 pt-3 flex items-center justify-between">
+                                <span class="text-[10px] text-gray-500">Next reward</span>
+                                <span class="text-xs font-bold text-[#c8151c]">$5 off &middot; 55 pts to go</span>
+                            </div>
+                        </div>
+
+                        <!-- Bottom tab bar -->
+                        <div class="mt-4 border-t border-gray-100 px-2 py-2 flex items-center justify-between">
+                            <div class="flex-1 text-center">
+                                <p class="text-sm">🏠</p>
+                                <p class="text-[8px] text-gray-400 font-semibold mt-0.5">Home</p>
+                            </div>
+                            <div class="flex-1 text-center">
+                                <p class="text-sm">🍽️</p>
+                                <p class="text-[8px] text-gray-400 font-semibold mt-0.5">Menu</p>
+                            </div>
+                            <div class="flex-1 text-center">
+                                <p class="text-sm">❤️</p>
+                                <p class="text-[8px] text-gray-400 font-semibold mt-0.5">Favorites</p>
+                            </div>
+                            <div class="flex-1 text-center">
+                                <p class="text-sm">⭐</p>
+                                <p class="text-[8px] text-[#c8151c] font-bold mt-0.5">Rewards</p>
+                            </div>
+                            <div class="flex-1 text-center">
+                                <p class="text-sm">👤</p>
+                                <p class="text-[8px] text-gray-400 font-semibold mt-0.5">Account</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ IMMEDIATE VALUE ============ -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <div class="text-center mb-10">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">What You Get, Right Away</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+            <div class="logo-card relative bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                <p class="relative z-10 oswald font-extrabold text-3xl text-[#c8151c]">$10</p>
+                <p class="relative z-10 font-bold text-gray-800 mt-2">Start With $10</p>
+                <p class="relative z-10 text-sm text-gray-500 mt-2 leading-relaxed">Receive a $10 signup reward just
+                    for joining.</p>
+            </div>
+            <div class="logo-card relative bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                <p class="relative z-10 oswald font-extrabold text-3xl text-[#c8151c]">$15</p>
+                <p class="relative z-10 font-bold text-gray-800 mt-2">Celebrate Your Birthday</p>
+                <p class="relative z-10 text-sm text-gray-500 mt-2 leading-relaxed">Receive a $15 birthday reward
+                    during your birthday month.</p>
+            </div>
+            <div class="logo-card relative bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                <p class="relative z-10 oswald font-extrabold text-3xl text-[#c8151c]">1:1</p>
+                <p class="relative z-10 font-bold text-gray-800 mt-2">Every Dollar Counts</p>
+                <p class="relative z-10 text-sm text-gray-500 mt-2 leading-relaxed">Earn 1 point for every
+                    qualifying dollar spent.</p>
+            </div>
+            <div class="logo-card relative bg-white rounded-2xl shadow-lg hover:shadow-2xl p-6 text-center">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                <p class="relative z-10 oswald font-extrabold text-3xl text-[#c8151c]">100</p>
+                <p class="relative z-10 font-bold text-gray-800 mt-2">Cash In Anytime</p>
+                <p class="relative z-10 text-sm text-gray-500 mt-2 leading-relaxed">Every 100 points unlocks $5 in
+                    rewards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ REWARDS MATH ============ -->
+    <section class="bg-white w-full py-14 md:py-20 border-y border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">Every Meal Gets You Closer</h2>
+                <p class="text-gray-500 mt-2">See exactly what your visit earns you.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-50 rounded-xl p-5 text-center border border-gray-100">
+                    <p class="text-2xl font-extrabold oswald text-gray-800">$25 <span class="text-[#c8151c]">&rarr;</span> 25 pts</p>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Spend, then earn</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center border border-gray-100">
+                    <p class="text-2xl font-extrabold oswald text-gray-800">100 pts <span class="text-[#c8151c]">&rarr;</span> $5</p>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Unlock a reward</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center border border-gray-100">
+                    <p class="text-2xl font-extrabold oswald text-gray-800">Join <span class="text-[#c8151c]">&rarr;</span> $10</p>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">Welcome reward, day one</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-5 text-center border border-gray-100">
+                    <p class="text-2xl font-extrabold oswald text-gray-800">Birthday <span class="text-[#c8151c]">&rarr;</span> $15</p>
+                    <p class="text-xs text-gray-500 mt-2 uppercase tracking-wide">On the house</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section id="how-it-works" class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20 scroll-mt-6">
+        <div class="text-center mb-12">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">How You Get Rewarded</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 relative">
+            <div class="text-center">
+                <div class="mx-auto w-12 h-12 rounded-full bg-[#c8151c] text-white oswald font-bold text-lg flex items-center justify-center shadow-md">1</div>
+                <p class="font-bold text-gray-800 mt-4">Join Red River Rewards</p>
+                <p class="text-sm text-gray-500 mt-1">Sign up free through Toast in under a minute.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-12 h-12 rounded-full bg-[#c8151c] text-white oswald font-bold text-lg flex items-center justify-center shadow-md">2</div>
+                <p class="font-bold text-gray-800 mt-4">Order Ahead</p>
+                <p class="text-sm text-gray-500 mt-1">Place your takeout order directly through the app.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-12 h-12 rounded-full bg-[#c8151c] text-white oswald font-bold text-lg flex items-center justify-center shadow-md">3</div>
+                <p class="font-bold text-gray-800 mt-4">Earn Rewards</p>
+                <p class="text-sm text-gray-500 mt-1">Every qualifying purchase automatically earns points.</p>
+            </div>
+            <div class="text-center">
+                <div class="mx-auto w-12 h-12 rounded-full bg-[#c8151c] text-white oswald font-bold text-lg flex items-center justify-center shadow-md">4</div>
+                <p class="font-bold text-gray-800 mt-4">Redeem &amp; Repeat</p>
+                <p class="text-sm text-gray-500 mt-1">Use rewards, receive exclusive offers, and keep coming back.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY GUESTS LOVE THE APP ============ -->
+    <section class="bg-white w-full py-14 md:py-20 border-y border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">Why Guests Love the App</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">📱</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Order takeout in seconds</p>
+                </div>
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">⚡</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Skip waiting in line</p>
+                </div>
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">⭐</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Rewards track automatically</p>
+                </div>
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">🎁</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Exclusive member offers</p>
+                </div>
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">🎂</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Birthday rewards</p>
+                </div>
+                <div class="logo-card relative bg-gray-50 rounded-2xl shadow-sm hover:shadow-xl p-6 text-center border border-gray-100">
+                    <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/10 to-orange-500/10 rounded-2xl blur-xl"></div>
+                    <p class="relative z-10 text-3xl">❤️</p>
+                    <p class="relative z-10 font-bold text-gray-800 mt-3">Save favorite locations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ APP SECTION ============ -->
+    <section class="bg-gray-900 w-full py-14 md:py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-white">Download the Red River Restaurants App</h2>
+            <p class="text-gray-300 mt-4 max-w-2xl mx-auto leading-relaxed">
+                Order ahead in seconds, earn rewards automatically, save your favorite locations, and enjoy a
+                faster pickup experience every time you visit.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <a href="https://apps.apple.com/us/app/red-river-restaurants/id6744835848"
+                    class="inline-flex items-center gap-2 bg-white text-gray-900 font-bold px-6 py-3 rounded-xl text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    Download on the App Store
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.toasttab.redriverrestaurants"
+                    class="inline-flex items-center gap-2 bg-white text-gray-900 font-bold px-6 py-3 rounded-xl text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                    Get it on Google Play
+                </a>
+            </div>
+            <p class="mt-4">
+                <a href="https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsSignup"
+                    class="text-gray-400 text-xs md:text-sm underline underline-offset-4 hover:text-gray-200 transition-colors">
+                    Prefer not to install the app? Join Red River Rewards online.
+                </a>
+            </p>
+            <a href="https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsSignup"
+                class="inline-block mt-8 bg-[#c8151c] text-white font-bold oswald tracking-wide px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm md:text-base">
+                Join Through Toast
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ PARTICIPATING LOCATIONS ============ -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <div class="text-center mb-10">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">Participating Locations</h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">Your Red River Rewards account works across
+                participating Red River Restaurants, making it easy to order, earn rewards, and redeem offers
+                wherever you dine.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+            <a href="https://redriverbbq.com/league-city/"
+                class="logo-card relative flex flex-col items-center p-6 rounded-2xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-2xl">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-2xl blur-xl"></div>
+                <img src="../images/RRBBQBrand.png" alt="Red River BBQ & Grill"
+                    class="w-32 h-32 object-contain relative z-10 drop-shadow-md">
+                <p class="mt-2 text-sm font-bold text-[#b22222] uppercase tracking-wide relative z-10">League City, TX</p>
+            </a>
+            <a href="https://redrivercantina.com/LeagueCity/"
+                class="logo-card relative flex flex-col items-center p-6 rounded-2xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-2xl">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-teal-500/20 to-red-500/20 rounded-2xl blur-xl"></div>
+                <img src="../images/RRCBrand.png" alt="Red River Cantina League City"
+                    class="w-32 h-32 object-contain relative z-10 drop-shadow-md">
+                <p class="mt-2 text-sm font-bold text-[#b22222] uppercase tracking-wide relative z-10">League City, TX</p>
+            </a>
+            <a href="https://redrivercantina.com/Richmond/"
+                class="logo-card relative flex flex-col items-center p-6 rounded-2xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-2xl">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-teal-500/20 to-red-500/20 rounded-2xl blur-xl"></div>
+                <img src="../images/RRCBrand.png" alt="Red River Cantina Richmond"
+                    class="w-32 h-32 object-contain relative z-10 drop-shadow-md">
+                <p class="mt-2 text-sm font-bold text-[#b22222] uppercase tracking-wide relative z-10">Richmond, TX</p>
+            </a>
+            <a href="https://redriverbbq.com/katy/"
+                class="logo-card relative flex flex-col items-center p-6 rounded-2xl bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-2xl">
+                <div class="logo-glow absolute inset-0 bg-gradient-to-r from-amber-500/20 to-red-500/20 rounded-2xl blur-xl"></div>
+                <img src="../images/rrbbqburgerLogosm.png" alt="Red River BBQ & Burger"
+                    class="w-32 h-24 object-contain relative z-10 drop-shadow-md">
+                <p class="mt-2 text-sm font-bold text-[#b22222] uppercase tracking-wide relative z-10">Katy, TX</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ EXISTING MEMBERS ============ -->
+    <section class="bg-white w-full py-14 md:py-16 border-t border-gray-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="oswald font-bold text-2xl md:text-3xl text-gray-800">Already a Rewards Member?</h2>
+            <p class="text-gray-500 mt-3">Look up your account, check your rewards, and stay connected with Red
+                River Rewards.</p>
+            <a href="https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsLookup"
+                class="inline-block mt-6 border-2 border-[#c8151c] text-[#c8151c] font-bold oswald tracking-wide px-8 py-3 rounded-full hover:bg-[#c8151c] hover:text-white transition-all text-sm md:text-base">
+                Look Up My Rewards
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <div class="text-center mb-10">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-gray-800">Questions, Answered</h2>
+        </div>
+        <div class="space-y-3">
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Is Red River Rewards free to join?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Yes. Red River Rewards is free to join.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    How do I earn points?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Members earn 1 point for every $1 spent on qualifying
+                    purchases.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    How do rewards work?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Every 100 points unlocks a $5 reward.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Do I get anything for signing up?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Yes. New members receive a 200-point signup bonus, equal to a
+                    $10 welcome reward.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Is there a birthday reward?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Yes. Members receive $15 off during their birthday month.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Can I use rewards at every Red River location?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Rewards are available at participating Red River Restaurants.
+                </p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Can I order ahead through the app?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">Yes. The Toast-powered Red River Rewards app lets you place
+                    takeout orders ahead of time, pay in advance, earn rewards on qualifying purchases, and
+                    simply pick up your meal when it's ready.</p>
+            </details>
+            <details class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
+                <summary class="flex items-center justify-between font-bold text-gray-800">
+                    Do I need the app to earn rewards?
+                    <span class="faq-chevron text-[#c8151c]">&#9660;</span>
+                </summary>
+                <p class="text-sm text-gray-500 mt-3">No. You can join online through Toast, but downloading the
+                    app makes ordering, tracking rewards, and redeeming offers much easier.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="animated-gradient w-full py-14 md:py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <h2 class="oswald font-bold text-3xl md:text-4xl text-white drop-shadow-md">Download. Order. Earn. Repeat.</h2>
+            <p class="text-white/90 mt-3">The fastest way to enjoy Red River is through the Red River Rewards app.
+                Order ahead, skip the line, earn rewards, and enjoy exclusive member benefits every time you
+                visit.</p>
+            <a href="https://www.toasttab.com/red-river-bbq-league-city-1911-e-main-st-suite-b/rewardsSignup"
+                class="inline-block mt-7 bg-white text-[#c8151c] font-bold oswald tracking-wide px-10 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm md:text-base">
+                Join Red River Rewards
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-[#c8151c] w-full flex-shrink-0 py-6 flex flex-col items-center justify-center gap-2 px-4">
+        <a href="/"
+            class="text-white text-sm md:text-base font-semibold underline underline-offset-4 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-white rounded-sm">
+            Back to Red River Restaurants
+        </a>
+        <a href="/privacy-policy/"
+            class="text-white/90 text-xs md:text-sm underline underline-offset-4 hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-white rounded-sm">
+            Privacy Policy
+        </a>
+    </footer>
+
+</body>
+
+</html>
